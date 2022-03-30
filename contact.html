@@ -220,10 +220,6 @@
                   <h2><a class="navbar-brand" href="/">
                       <span>S</span>crap <span>B</span>ike <span>B</span>uyer
                     </a></h2>
-                  <!-- if logo is image enable this   
-										<a class="navbar-brand" href="#/">
-											<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-										</a> -->
                   <p class="pr-lg-4">Scrap Bike Buyer are known as the best buyer of an exclusive range of all types of Bike Scrap. We pickup your bike scrap within 1 hour. </p>
                   <div class="columns-2">
                     <ul class="social">
@@ -277,42 +273,10 @@
             <div class="columns text-lg-left">
               <p>© <script>document.write(new Date().getFullYear())</script> Scrap Bike Buyer. All rights reserved | Designed by <a href="https://dqureshiumar.github.io/" target="_blank">Futura Tech</a> <a style="color:#14151F" href="https://w3layouts.com"> And W3layouts</a></p>
             </div>
-            <!-- <ul class="columns text-lg-right">
-              <li><a href="#">Privacy Policy</a>
-              </li>
-              <li>|</li>
-              <li><a href="#">Terms Of Use</a>
-              </li>
-            </ul> -->
           </div>
         </div>
       </div>
       <!-- copyright -->
-      <!-- move top -->
-      <button onclick="topFunction()" id="movetop" title="Go to top">
-        <span class="fa fa-long-arrow-up" aria-hidden="true"></span>
-      </button>
-      <script>
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-          scrollFunction()
-        };
-
-        function scrollFunction() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("movetop").style.display = "block";
-          } else {
-            document.getElementById("movetop").style.display = "none";
-          }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
-      </script>
-      <!-- /move top -->
 
     </section>
   </footer>
@@ -363,6 +327,32 @@
   <script src="assets/js/smtp.js"></script>
   <!-- 6ceb41b3-4c44-4bb0-92b2-0e3d4c2c8a39 -->
   <script>
+    function clearText(){
+      document.getElementById('mynumber').value = "";
+    }
+    function getaquote(){
+      var numberr = document.getElementById("mynumber").value;
+
+      if(numberr.length == 0){
+        swal("Error!", "Please Enter Phone Number", "error");
+      }
+      else{
+        var message_send = "<h1>A Client Needs a Quotation </h1>";
+        message_send += "<h2>Phone Number - " + numberr;
+        message_send += "</h2><h2> Thank You </h2>";
+        Email.send({
+          SecureToken : "94e723de-8bfb-4200-9ab7-c6b294e0ef6b",
+          To : 'infoscrapbikebuyer@gmail.com',
+          From : "uqureshi269@gmail.com",
+          Subject : "Provide Quotation",
+          Body : message_send
+        }).then(
+          message => swal("Good job!", "Quote Requested Successfully!", "success")
+        )
+        clearText();
+        
+      }
+    }
     function sendmail(){
       var name = document.getElementById("txtName").value;
       var email = document.getElementById("txtEmail").value;
@@ -393,32 +383,6 @@
         document.getElementById('txtEmail').value = "";
         document.getElementById('txtPhone').value = "";
         document.getElementById('txtMessage').value = "";
-      }
-    }
-    function clearText(){
-      document.getElementById('mynumber').value = "";
-    }
-    function getaquote(){
-      var numberr = document.getElementById("mynumber").value;
-
-      if(numberr.length == 0){
-        swal("Error!", "Please Enter Phone Number", "error");
-      }
-      else{
-        var message_send = "<h1>A Client Needs a Quotation </h1>";
-        message_send += "<h2>Phone Number - " + numberr;
-        message_send += "</h2><h2> Thank You </h2>";
-        Email.send({
-          SecureToken : "94e723de-8bfb-4200-9ab7-c6b294e0ef6b",
-          To : 'infoscrapbikebuyer@gmail.com',
-          From : "uqureshi269@gmail.com",
-          Subject : "Provide Quotation",
-          Body : message_send
-        }).then(
-          message => swal("Good job!", "Quote Requested Successfully!", "success")
-        )
-        clearText();
-        
       }
     }
   </script>
