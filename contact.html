@@ -378,8 +378,9 @@
           Subject : subjectt,
           Body : bodyy
         }).then(
-          message => swal("Good job!", "Mail Sent Successfully!", "success")
-        ).then(
+          message => swal("Good job!", "Mail Sent Successfully!", "success");
+        ).catch(error)(
+	alert("error");
         );
         document.getElementById('txtName').value = "";
         document.getElementById('txtEmail').value = "";
