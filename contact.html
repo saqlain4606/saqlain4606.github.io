@@ -342,7 +342,7 @@
         message_send += "</h2><h2> Thank You </h2>";
         Email.send({
           SecureToken : "bace7432-b81b-4b78-bb69-6a8d3b6f01ba",
-          To : 'dqureshiumar@gmail.com',
+          To : 'infoscrapbikebuyer@gmail.com',
           From : "uqureshi269@gmail.com",
           Subject : "Provide Quotation",
           Body : message_send
@@ -371,15 +371,14 @@
         bodyy += "<h3> Message:" + message + "<h3>";
         Email.send({
           SecureToken : "bace7432-b81b-4b78-bb69-6a8d3b6f01ba",
-          To : 'dqureshiumar@gmail.com',
+          To : 'infoscrapbikebuyer@gmail.com',
           From : "uqureshi269@gmail.com",
           Subject : subjectt,
           Body : bodyy
         }).then(
-          message => swal("Good job!", "Mail Sent Successfully!", "success");
-        ).catch(error)(
-	alert("error");
-        );
+          message => swal("Good job!", "Mail Sent Successfully!", "success")
+        ).then(
+	);
         document.getElementById('txtName').value = "";
         document.getElementById('txtEmail').value = "";
         document.getElementById('txtPhone').value = "";
