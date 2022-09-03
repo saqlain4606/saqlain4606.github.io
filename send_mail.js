@@ -35,7 +35,7 @@ function getAQuote(event){
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             swal("Good job!", "Quote Requested Successfully", "success")
-            document.forms['frmData'].reset();
+            document.forms['getQuoteFrm'].reset();
             document.getElementById("getAQuoteBtn").disabled = false;
         }
     }
