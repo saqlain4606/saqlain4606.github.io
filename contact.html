@@ -92,24 +92,9 @@
             </li>
           </ul>
           <ul class="navbar-nav search-right mt-lg-0 mt-2">
-            <!-- <li class="nav-item mr-3" title="Search"><a href="#search" class="btn search-search">
-                <span class="fa fa-search" aria-hidden="true"></span></a></li> -->
             <li class="nav-item"><a href="tel:+918652744606" class="btn btn-primary d-none d-lg-block btn-style mr-2">Contact
                 Us</a></li>
           </ul>
-
-          <!-- //toggle switch for light and dark theme -->
-          <!-- search popup -->
-          <!-- <div id="search" class="pop-overlay">
-            <div class="popup">
-              <form action="#" method="GET" class="d-sm-flex">
-                <input type="search" placeholder="Search.." name="search" required="required" autofocus>
-                <button type="submit">Search</button>
-                <a class="close" href="#url">&times;</a>
-              </form>
-            </div>
-          </div> -->
-          <!-- /search popup -->
         </div>
         <!-- toggle switch for light and dark theme -->
         <div class="mobile-position">
@@ -172,25 +157,25 @@
 					<div class="title-content text-left">
 						<h3 class="hny-title mb-lg-5 mb-4">Send Us A Message</h3>
 					</div>
-				  <div class="signin-form">
-					<div class="form-input">
-					  <input type="text" name="txtName" id="txtName" placeholder="Name" />
-					</div>
-					<div class="row con-two">
-					<div class="col-lg-6 form-input">
-					  <input type="email" name="txtEmail" id="txtEmail" placeholder="Email" />
-					</div>
-					<div class="col-lg-6 form-input">
-						<input type="text" name="txtPhone" id="txtPhone" placeholder="Phone" class="contact-input" />
-					</div>
-					</div>
-					<div class="form-input">
-					  <textarea placeholder="Message" name="txtMessage" id="txtMessage" ></textarea>
-					</div>
-					<div class="submit-button text-lg-right">
-					   <button type="submit" class="btn btn-style" onclick="sendmail()">Submit</button>
-				  </div>
-				  </div>
+				  <form class="signin-form" action="javascript:void(0);" id="frmData" name="frmData" onsubmit="submitFormData(this)">
+            <div class="form-input">
+              <input type="text" name="name" id="name" placeholder="Name" />
+            </div>
+            <div class="row con-two">
+            <div class="col-lg-6 form-input">
+              <input type="email" name="email" id="email" placeholder="Email" />
+            </div>
+            <div class="col-lg-6 form-input">
+              <input type="number" name="phone" id="phone" placeholder="Phone" min="0" maxlength="10" class="contact-input" />
+            </div>
+            </div>
+            <div class="form-input">
+              <textarea placeholder="Message" name="message" id="message" ></textarea>
+            </div>
+            <div class="submit-button text-lg-right">
+              <button type="submit" id="mySubmitButton" class="btn btn-style">Submit</button>
+            </div>
+				  </form>
 				</div>
 			  </div>
 			</div>
@@ -333,6 +318,7 @@
 
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="send_mail.js"></script>
   <script src="assets/js/smtp.js"></script>
   <!-- 6ceb41b3-4c44-4bb0-92b2-0e3d4c2c8a39 -->
   <script>
