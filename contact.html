@@ -200,12 +200,10 @@
                 </h4>
               </div>
               <div class="col-lg-6 newsletter-right">
-                <div class="footer-newsletter">
-
-                  <input type="text" name="mynumber" id="mynumber" class="form-input" placeholder="Enter your Phone..">
-
-                  <button type="submit" class="btn" onclick="getaquote()">Submit</button>
-                </div>
+                <form class="footer-newsletter" id="getQuoteFrm" action="javascript:void(0);" onsubmit="getAQuote(this)">
+                    <input type="text" name="mynumber" id="mynumber" class="form-input" placeholder="Enter your Phone..">
+                    <button type="submit" name="getAQuoteBtn" id="getAQuoteBtn" class="btn">Submit</button>
+                </form>
               </div>
             </div>
             <div class="right-side">
@@ -319,68 +317,7 @@
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="send_mail.js"></script>
-  <script src="assets/js/smtp.js"></script>
   <!-- 6ceb41b3-4c44-4bb0-92b2-0e3d4c2c8a39 -->
-  <script>
-    function clearText(){
-      document.getElementById('mynumber').value = "";
-    }
-    function getaquote(){
-      var numberr = document.getElementById("mynumber").value;
-
-      if(numberr.length == 0){
-        swal("Error!", "Please Enter Phone Number", "error");
-      }
-      else{
-        var message_send = "<h1>A Client Needs a Quotation </h1>";
-        message_send += "<h2>Phone Number - " + numberr;
-        message_send += "</h2><h2> Thank You </h2>";
-        Email.send({
-          SecureToken : "bace7432-b81b-4b78-bb69-6a8d3b6f01ba",
-          To : 'infoscrapbikebuyer@gmail.com',
-          From : "uqureshi269@gmail.com",
-          Subject : "Provide Quotation",
-          Body : message_send
-        }).then(
-          message => swal("Good job!", "Quote Requested Successfully!", "success")
-        )
-        clearText();
-        
-      }
-    }
-    function sendmail(){
-      var name = document.getElementById("txtName").value;
-      var email = document.getElementById("txtEmail").value;
-      var phone = document.getElementById("txtPhone").value;
-      var message = document.getElementById("txtMessage").value;
-      if(name.length == 0 || email.length == 0 || phone.length == 0 || message.length == 0){
-        swal("Error!", "Please fill all the details", "error");
-      }
-      else{
-        var headline = "Website Form Contact Lead. ";
-        var temp = " has contacted you";
-        var subjectt = headline.concat(name,temp);
-        var bodyy = "<h1> You have a lead through your contact form<h1><h2> Below are the details </h2>";
-        bodyy += "<h2> Phone: " + phone + "<h2>";
-        bodyy += "<h2> Email: " + email + "<h2>";
-        bodyy += "<h3> Message:" + message + "<h3>";
-        Email.send({
-          SecureToken : "bace7432-b81b-4b78-bb69-6a8d3b6f01ba",
-          To : 'infoscrapbikebuyer@gmail.com',
-          From : "uqureshi269@gmail.com",
-          Subject : subjectt,
-          Body : bodyy
-        }).then(
-          message => swal("Good job!", "Mail Sent Successfully!", "success")
-        ).then(
-	);
-        document.getElementById('txtName').value = "";
-        document.getElementById('txtEmail').value = "";
-        document.getElementById('txtPhone').value = "";
-        document.getElementById('txtMessage').value = "";
-      }
-    }
-  </script>
   <!-- Whatsapp Floating Code -->
   <script type="text/javascript" src="floating-whatsapp/floating-wpp.min.js"></script>
   <div id="myButton"></div>

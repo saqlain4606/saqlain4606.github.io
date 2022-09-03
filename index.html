@@ -453,12 +453,10 @@
                 </h4>
               </div>
               <div class="col-lg-6 newsletter-right">
-                <div class="footer-newsletter">
-
-                  <input type="text" name="mynumber" id ="mynumber" class="form-input" placeholder="Enter your Phone Number">
-
-                  <button type="submit" class="btn" onclick="getaquote()">Submit</button>
-                </div>
+                <form class="footer-newsletter" id="getQuoteFrm" action="javascript:void(0);" onsubmit="getAQuote(this)">
+                  <input type="text" name="mynumber" id="mynumber" class="form-input" placeholder="Enter your Phone..">
+                  <button type="submit" name="getAQuoteBtn" id="getAQuoteBtn" class="btn">Submit</button>
+              </form>
               </div>
             </div>
             <div class="right-side">
@@ -689,36 +687,8 @@
 
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="assets/js/smtp.js"></script>
+  <script src="send_mail.js"></script>
 
-  <script>
-    function clearText(){
-      document.getElementById('mynumber').value = "";
-    }
-    function getaquote(){
-      var numberr = document.getElementById("mynumber").value;
-
-      if(numberr.length == 0){
-        swal("Error!", "Please Enter Phone Number", "error");
-      }
-      else{
-        var message_send = "<h1>A Client Needs a Quotation </h1>";
-        message_send += "<h2>Phone Number - " + numberr;
-        message_send += "</h2><h2> Thank You </h2>";
-        Email.send({
-          SecureToken : "bace7432-b81b-4b78-bb69-6a8d3b6f01ba",
-          To : 'infoscrapbikebuyer@gmail.com',
-          From : "uqureshi269@gmail.com",
-          Subject : "Provide Quotation",
-          Body : message_send
-        }).then(
-          message => swal("Good job!", "Quote Requested Successfully!", "success")
-        )
-        clearText();
-        
-      }
-    }
-  </script>
 <!-- Whatsapp Floating Code -->
 <script type="text/javascript" src="floating-whatsapp/floating-wpp.min.js"></script>
 <div id="myButton"></div>

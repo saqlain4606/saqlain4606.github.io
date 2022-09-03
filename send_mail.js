@@ -11,15 +11,35 @@ function submitFormData(event){
     let xhr = new XMLHttpRequest();
     xhr.open('POST',url,true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            alert("Form submitted successfully");
+            swal("Good job!", "Mail Sent Successfully!", "success")
             document.forms['frmData'].reset();
             document.getElementById("mySubmitButton").disabled = false;
-            console.log(xhr.responseText);
         }
     }
     xhr.send(params);
 }
+
+function getAQuote(event){
+    var phone = event.mynumber.value;
+    document.getElementById("getAQuoteBtn").disabled = true;
+    var url = "https://shrouded-peak-84878.herokuapp.com/get-a-quote-api.php";
+    var params = 'phone='+phone;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST',url,true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            swal("Good job!", "Quote Requested Successfully", "success")
+            document.forms['frmData'].reset();
+            document.getElementById("getAQuoteBtn").disabled = false;
+        }
+    }
+    xhr.send(params);
+    
+}
+

@@ -17721,7 +17721,7 @@ ul.breadcrumbs-custom-path li a {
   transition: 0.3s ease;
 }
 
-.w3l-footer-66 div.footer-newsletter {
+.w3l-footer-66 form.footer-newsletter {
   display: flex;
 }
 
@@ -17824,7 +17824,7 @@ ul.breadcrumbs-custom-path li a {
     text-align: center;
   }
 
-  .w3l-footer-66 div.footer-newsletter {
+  .w3l-footer-66 form.footer-newsletter {
     display: flex;
     margin-top: 26px;
   }
@@ -17865,7 +17865,7 @@ ul.breadcrumbs-custom-path li a {
 }
 
 @media (max-width:568px) {
-  .w3l-footer-66 div.footer-newsletter {
+  .w3l-footer-66 form.footer-newsletter {
     display: block;
   }
 
